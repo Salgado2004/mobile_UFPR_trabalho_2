@@ -19,7 +19,8 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             ano INTEGER,
             tema TEXT,
             integrantes INTEGER,
-            antagonista TEXT
+            antagonista TEXT,
+            image TEXT
             )
         """.trimIndent()
 
