@@ -6,5 +6,6 @@ data class PRSeries(
     val ano: Int,
     val tema: String,
     val integrantes: Int,
-    val antagonista: String
+    val antagonista: String,
+    val image: String
 )

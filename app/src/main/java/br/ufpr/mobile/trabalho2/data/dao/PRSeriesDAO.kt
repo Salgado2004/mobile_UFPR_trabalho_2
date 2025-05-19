@@ -18,6 +18,7 @@ class PRSeriesDAO (private val context: Context)  {
             put("tema", prSeries.tema)
             put("integrantes", prSeries.integrantes)
             put("antagonista", prSeries.antagonista)
+            put("image", prSeries.image)
         }
         val id = db.insert("PRSeries", null, values)
         db.close()
@@ -36,7 +37,8 @@ class PRSeriesDAO (private val context: Context)  {
             val tema = cursor.getString(cursor.getColumnIndexOrThrow("tema"))
             val integrantes = cursor.getInt(cursor.getColumnIndexOrThrow("integrantes"))
             val antagonista = cursor.getString(cursor.getColumnIndexOrThrow("antagonista"))
-            prSeriesList.add(PRSeries(id, nome, ano, tema, integrantes, antagonista))
+            val image = cursor.getString(cursor.getColumnIndexOrThrow("image"))
+            prSeriesList.add(PRSeries(id, nome, ano, tema, integrantes, antagonista, image))
         }
 
         cursor.close()
@@ -55,7 +57,8 @@ class PRSeriesDAO (private val context: Context)  {
             val tema = cursor.getString(cursor.getColumnIndexOrThrow("tema"))
             val integrantes = cursor.getInt(cursor.getColumnIndexOrThrow("integrantes"))
             val antagonista = cursor.getString(cursor.getColumnIndexOrThrow("antagonista"))
-            prSeries = PRSeries(id, nome, ano, tema, integrantes, antagonista)
+            val image = cursor.getString(cursor.getColumnIndexOrThrow("image"))
+            prSeries = PRSeries(id, nome, ano, tema, integrantes, antagonista, image)
         }
         cursor.close()
         db.close()
@@ -70,6 +73,7 @@ class PRSeriesDAO (private val context: Context)  {
             put("tema", prSeries.tema)
             put("integrantes", prSeries.integrantes)
             put("antagonista", prSeries.antagonista)
+            put("image", prSeries.image)
         }
         val rowsAffected = db.update(DBHelper.TABLE_NAME, values, "id = ?", arrayOf(prSeries.id.toString()))
         db.close()
@@ -102,7 +106,8 @@ class PRSeriesDAO (private val context: Context)  {
             val tema = cursor.getString(cursor.getColumnIndexOrThrow("tema"))
             val integrantes = cursor.getInt(cursor.getColumnIndexOrThrow("integrantes"))
             val antagonista = cursor.getString(cursor.getColumnIndexOrThrow("antagonista"))
-            prSeriesList.add(PRSeries(id, nome, ano, tema, integrantes, antagonista))
+            val image = cursor.getString(cursor.getColumnIndexOrThrow("image"))
+            prSeriesList.add(PRSeries(id, nome, ano, tema, integrantes, antagonista, image))
         }
         cursor.close()
         db.close()
