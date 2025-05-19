@@ -5,6 +5,6 @@ data class PRSeries(
     val nome: String,
     val ano: Int,
     val tema: String,
-    val integrantes: List<String>,
+    val integrantes: Int,
     val antagonista: String
 )
