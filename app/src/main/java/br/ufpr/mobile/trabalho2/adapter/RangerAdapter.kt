@@ -11,7 +11,8 @@ import br.ufpr.mobile.trabalho2.R
 import br.ufpr.mobile.trabalho2.model.PRSeries
 
 class RangerAdapter(
-    private val rangers: List<PRSeries>
+    private val rangers: List<PRSeries>,
+    private val click: (PRSeries) -> Unit
 ): Adapter<RangerAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -20,7 +21,7 @@ class RangerAdapter(
         val rangerAno = itemView.findViewById<TextView>(R.id.textAno)
 
         fun bind(ranger: PRSeries){
-            rangerImg.setImageResource()
+            rangerImg.setImageResource(R.drawable.main_logo)
             rangerName.text = ranger.nome
             rangerAno.text = ranger.ano.toString()
             itemView.setOnClickListener{click(ranger)}
