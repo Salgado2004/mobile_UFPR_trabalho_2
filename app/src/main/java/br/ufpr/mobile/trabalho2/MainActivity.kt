@@ -19,14 +19,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var rangerList: RecyclerView
     private lateinit var PRDao: PRSeriesDAO
-
-    var newBttn = findViewById<Button>(R.id.buttonNew)
-    var pesquisaBttn = findViewById<Button>(R.id.buttonPesquisa)
-    var nomePesquisa = findViewById<EditText>(R.id.pesquisaText)
+    private lateinit var nomePesquisa: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -37,24 +32,40 @@ class MainActivity : AppCompatActivity() {
         }
         PRDao = PRSeriesDAO(this)
         rangerList = findViewById(R.id.powerRangerList)
+        nomePesquisa = findViewById(R.id.pesquisaText)
+
+        loadList()
+        rangerList.layoutManager = LinearLayoutManager(this)
+        rangerList.setHasFixedSize(true)
+        rangerList.addItemDecoration(DividerItemDecoration(this,RecyclerView.VERTICAL))
+    }
+
+    fun loadList(){
         rangerList.adapter = RangerAdapter(PRDao.getPRSeries()){
             val intent = Intent(this, DetailsActivity::class.java)
             intent.putExtra("id", it.id)
             startActivity(intent)
         }
-        rangerList.layoutManager = LinearLayoutManager(this)
-        rangerList.setHasFixedSize(true)
-        rangerList.addItemDecoration(DividerItemDecoration(this,RecyclerView.VERTICAL))
-
     }
 
     fun newPRSeries(view: View){
-        var intent = Intent(this,DetailsActivity::class.java)
+        val intent = Intent(this, FormActivity::class.java).apply {
+            putExtra("id", 0)
+        }
         startActivity(intent)
     }
 
     fun pesquisarPRSeries(view: View){
-        var nome = nomePesquisa.text.toString()
-        PRDao.searchPRSeries(nome)
+        val nome = nomePesquisa.text.toString()
+        rangerList.adapter = RangerAdapter(PRDao.searchPRSeries(nome)){
+            val intent = Intent(this, DetailsActivity::class.java)
+            intent.putExtra("id", it.id)
+            startActivity(intent)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadList()
     }
 }

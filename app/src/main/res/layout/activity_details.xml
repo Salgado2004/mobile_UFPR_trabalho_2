@@ -28,10 +28,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
+            android:layout_marginBottom="169dp"
             android:fontFamily="@font/albert_sans"
             android:text="Equipe:"
             android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/prImageView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -143,6 +145,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView5" />
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -156,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#F20B2E"
+                android:onClick="editPRSeries"
                 android:text="Editar"
                 app:icon="@android:drawable/ic_menu_edit" />
 
@@ -165,10 +168,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#F20B2E"
+                android:onClick="deletePRSeries"
                 android:text="Excluir"
                 app:icon="@android:drawable/ic_menu_delete" />
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/prImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/prAnoView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:srcCompat="@drawable/dino_thunder" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

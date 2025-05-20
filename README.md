@@ -9,7 +9,6 @@ Universidade Federal do Paraná - UFPR
 *DS151 - Desenvolvimento Mobile*
 
 Prof. Alessandro Brawerman
-(A pedidos do Leonardo Salgado -> Alessandro Brownieman)
 
 #Trabalho 2 - Power Ranger Series
 O projeto é Power Ranger Series! Uma listagem de series do power rangers. É possível realizar a inserção, edição e deleção das temporadas.

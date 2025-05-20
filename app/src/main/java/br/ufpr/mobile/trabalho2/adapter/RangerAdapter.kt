@@ -21,9 +21,9 @@ class RangerAdapter(
         val rangerAno = itemView.findViewById<TextView>(R.id.textAno)
 
         fun bind(ranger: PRSeries){
-            rangerImg.setImageResource(R.drawable.main_logo)
             rangerName.text = ranger.nome
             rangerAno.text = ranger.ano.toString()
+            rangerImg.setImageResource(ranger.image.toInt())
             itemView.setOnClickListener{click(ranger)}
         }
     }
