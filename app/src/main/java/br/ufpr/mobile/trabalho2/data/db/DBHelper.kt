@@ -13,7 +13,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
     override fun onCreate(db: SQLiteDatabase) {
         val createTable = """
-            CREATE TABLE pwrrangers (
+            CREATE TABLE $TABLE_NAME (
                 id INTEGER PRIMARY KEY,
                 nome TEXT,
                 ano INTEGER,
@@ -27,7 +27,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         db.execSQL(createTable)
 
         val insertData = """
-        INSERT INTO pwrrangers (nome, ano, tema, integrantes, antagonista, image) 
+        INSERT INTO $TABLE_NAME (nome, ano, tema, integrantes, antagonista, image) 
             VALUES
             ('Power Rangers: Dino Thunder', 2003, 'Dinossauros', 5, 'Mesogog', 'dino_thunder.jpg'),
             ('Power Rangers: SPD', 2004, 'Policial/Futurista', 7, 'Imperador Gruumm', 'spd.jpg');
